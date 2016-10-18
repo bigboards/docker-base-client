@@ -12,7 +12,7 @@ RUN apt-get update \
  && apt-get -y install libssl-dev libffi-dev python-pip pkg-config python-dev openssh-server \
  && apt-get clean \
  && apt-get autoclean \
- && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archives/*.deb
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archives/*.deb \
  && mkdir /var/run/sshd \
  && sed -i 's/PermitRootLogin without-password/PermitRootLogin yes/' /etc/ssh/sshd_config \
  && sed -i 's/Port 22/Port 2222/' /etc/ssh/sshd_config \
