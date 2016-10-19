@@ -10,7 +10,7 @@ ENV NOTVISIBLE "in users profile"
 RUN mkdir /apps && chmod a+rx /apps
 
 RUN apt-get update \
- && apt-get -y install libssl-dev libffi-dev libfreetype6-dev python-pip pkg-config gfortran python-dev openssh-server \
+ && apt-get -y install libssl-dev libffi-dev libfreetype6-dev libpng-dev libblas-dev liblapack-dev libatlas-base-dev gfortran python-pip pkg-config python-dev openssh-server \
  && apt-get clean \
  && apt-get autoclean \
  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archives/*.deb \
@@ -22,8 +22,7 @@ RUN apt-get update \
 
 # These libs still give errors when installing: json matplotlib
 # And these could not be found yet: h2o lightning
-RUN pip install ConfigParser requests matplotlib numpy scipy scikit-learn
-# pandas sqlalchemy seaborn ibis py4j
+RUN pip install Cython ConfigParser requests numpy scipy pandas scikit-learn sqlalchemy seaborn ibis py4j
 
 ENV PATH /opt/anaconda/bin:$PATH
 
