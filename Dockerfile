@@ -1,6 +1,5 @@
 # Pull base image.
-FROM bigboards/java-8-x86_64
-#FROM bigboards/java-8-__arch__
+FROM bigboards/java-8-__arch__
 
 MAINTAINER bigboards
 USER root
